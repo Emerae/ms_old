@@ -69,17 +69,20 @@ void		handler(int signo)
 static void	parse_and_exec(t_list **envl, char *line)
 {
 	int		err;
-	t_error	error;
-	t_cmd	*cmds;
-
-	err = 0;
-	cmds = parse_command_new(line, env_list, &last_status);
-	if (!cmds)
+	t_tree	*tree;
+	
+	tree = parse_command_new(line, *envl, &err);
+	if (!tree)
+	{
+		update_return(envl, err);
+		free(line);
 		return;
-	execute_cmds(cmds, env_list, &last_status);
-	free_cmd_list(cmds);
-	update_env(envl);
-	free_all(line, cmds);
+	}
+	
+	err = execute(NULL, envl, line);
+	update_return(envl, err);
+	free_tree(tree);
+	free(line);
 	prompt();
 }
 
