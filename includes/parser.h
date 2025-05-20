@@ -225,6 +225,23 @@ int		cy4_3wrong_pipe(t_input *head);
 int		cy4_4wrong_redir_log(t_input *head);
 int		cy4_5wrong_pipe_log(t_input *head);
 
+
+/* Wrapper to expose high-level entry points */
+t_tree  *parse_command_new(char *line, t_list *env, int *status);
+
+/* Nouvelle fonction pour la conversion */
+t_tree *convert_cmdlist_to_tree(t_cmd *cmds, char *line);
+
+/* Fonction pour libérer la liste de commandes */
+void   free_cmd_list(t_cmd *cmd);
+
+char	**copy_args(char **args);
+
+void	apply_redirections_to_info(t_info *info, t_redir *redirs);
+
+
+
+
 // A delet
 void	print_cmd_list(t_cmd *head_cmd);
 void	print_input_list(t_input *head_input);

@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 void	*cy_memset(void *s, int c, size_t n)
 {

@@ -9,6 +9,11 @@
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2
+# define RD_IN     0
+# define RD_OUT    1
+# define RD_APPEND 2
+# define RD_HEREDOC 3
+# define AST_PIPE  PIPE
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
@@ -78,6 +83,13 @@ typedef struct		s_error
 	int				num;
 	char			token;
 }					t_error;
+
+typedef struct s_redir
+{
+    int         type;      /* RD_IN, RD_OUT, etc. */
+    char       *file;      /* Nom du fichier */
+    struct s_redir *next;  /* Redirection suivante */
+} t_redir;
 
 typedef int	(*t_exec)(t_info *cmd, t_list **envl);
 

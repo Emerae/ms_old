@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	analyse_char(char c)
 {

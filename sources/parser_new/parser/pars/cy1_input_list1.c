@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	cy1_append_input(t_input **head, int start, int end, char *input)
 {

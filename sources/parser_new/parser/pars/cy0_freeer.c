@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 void	cy0_free_env(char **env, int i)
 {

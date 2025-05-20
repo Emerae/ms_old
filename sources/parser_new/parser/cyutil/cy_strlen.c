@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	cy_strlen(char *s)
 {

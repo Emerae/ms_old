@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 size_t	cy_strlcat(char *dst, const char *src, size_t siz)
 {

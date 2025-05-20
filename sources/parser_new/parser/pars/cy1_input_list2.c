@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 static void	print_node_debug(int start, int end, char *input)
 {

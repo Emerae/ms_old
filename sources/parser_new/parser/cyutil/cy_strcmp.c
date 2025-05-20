@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	cy_strcmp(const char *s1, const char *s2)
 {

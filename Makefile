@@ -83,6 +83,9 @@ SRCS		=  $(addprefix sources/, \
 			builtin/export_sorted.c \
 			builtin/pwd.c \
 			builtin/unset.c \
+			AST/ast_integration.c \
+			AST/ast_utils.c \
+			AST/create_tree.c \
 			environment/declare.c \
 			environment/env.c \
 			environment/replace.c \

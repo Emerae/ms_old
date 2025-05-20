@@ -77,7 +77,7 @@ int parse_and_exec(char *line, t_list **envl)
         return (err);
 
     ir = ast_to_ir(tree, envl);
-    free_ast(tree);
+    free_tree(tree);
     if (!ir)
         return (ENOMEM);
 
@@ -110,7 +110,7 @@ static int	waiting_command(t_list **envl)
 	{
 		if (g_signal == 4)
 			g_signal = 2;
-		parse_and_exec(line, &envl);
+		parse_and_exec(line, envl);
 		g_signal = 0;
 	}
 	if (line)

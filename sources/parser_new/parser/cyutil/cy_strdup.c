@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 char	*cy_strdup(char *s, int start, int end)
 {

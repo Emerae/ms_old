@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	cy_strlcpy(char *dst, char *src, int siz)
 {

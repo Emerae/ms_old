@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 static void	cy2_fill_builtin_id_1(t_cmd **current_cmd)
 {

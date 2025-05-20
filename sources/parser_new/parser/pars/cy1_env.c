@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 void	local_free_env(char **env)
 {

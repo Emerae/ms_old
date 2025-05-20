@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 static int	cy1_make_list_1(
 	t_input **head,
