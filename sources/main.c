@@ -1,5 +1,5 @@
 #include "minishell.h"
-#include "parser_new.h"
+#include "parser.h"
 #include "structures.h"
 
 int			g_signal;
@@ -68,22 +68,28 @@ void		handler(int signo)
  */
 int parse_and_exec(char *line, t_list **envl)
 {
-    t_tree     *tree;
-    t_ir_line *ir;
-    int        err;
-
-    tree = parse_command_new(line, *envl, &err);
-    if (err || !tree)
-        return (err);
-
-    ir = ast_to_ir(tree, envl);
-    free_tree(tree);
-    if (!ir)
-        return (ENOMEM);
-
-    err = exec_ir(ir, envl);
-    free_ir(ir);
-    return (err);
+	t_tree *tree;
+	t_ir_line *ir;
+	int err;
+	
+	/* Parse la ligne de commande */
+	tree = parse_command_new(line, *envl, &err);
+	if (err || !tree)
+		return (err);
+	
+	/* Convertit l'arbre en IR */
+	ir = ast_to_ir(tree, envl);
+	free_tree(tree);
+	if (!ir)
+		return (ERROR);
+	
+	/* Exécute la structure IR */
+	err = exec_ir(ir, envl);
+	
+	/* Libère la mémoire */
+	free_ir(ir);
+	
+	return (err);
 }
 
 /**

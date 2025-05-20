@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 void	free_redirs(t_redir *redir)
 {

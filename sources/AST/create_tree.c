@@ -1,5 +1,5 @@
 #include "minishell.h"
-#include "parser_new.h"
+#include "parser.h"
 #include "structures.h"
 
 static t_tree *new_exec_node(const t_ir_cmd *src)

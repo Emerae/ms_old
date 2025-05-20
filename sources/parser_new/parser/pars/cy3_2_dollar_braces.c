@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	cy3_handle_dollar_brace(t_input *current, int i, int j, char **env)
 {

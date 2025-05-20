@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 t_cmd	*init_cmd(void)
 {

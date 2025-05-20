@@ -1,6 +1,6 @@
 
 #include <stdio.h>
-#include "parser_new.h"
+#include "parser.h"
 #include "libft.h"
 
 static void print_cmd(t_cmd *cmd)

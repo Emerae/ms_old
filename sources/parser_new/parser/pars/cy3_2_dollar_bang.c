@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 void	cy3_handle_dollar_bang5(t_dollar_bang *sdb, t_input *current, int j)
 {

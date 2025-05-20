@@ -11,13 +11,10 @@
 # include <readline/rltypedefs.h>
 # include <limits.h>
 # include <fcntl.h>
+# include "structures.h"  /* Pour t_tree, t_info */
+# include "libftfull.h"   /* Pour t_list */
+# include "ir.h"
 
-typedef struct s_redir
-{
-	int				type;		// 0: < | 1: > | 2: >> | 3: <<
-	char			*file;
-	struct s_redir	*next;
-}	t_redir;
 
 typedef struct s_cmd
 {

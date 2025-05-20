@@ -1,4 +1,4 @@
-#include "prser.h"
+#include "parser.h"
 
 void	print_input_list(t_input *head_input)
 {

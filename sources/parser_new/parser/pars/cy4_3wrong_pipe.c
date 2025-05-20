@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	cy4_3contains_pipe_ch(char *input)
 {

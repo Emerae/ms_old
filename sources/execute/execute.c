@@ -54,7 +54,7 @@ static void	remove_last_semic(t_split *split);
  */
 int			execute(t_split *split, t_list **envl, char *line);
 
-static int	return_value(int status, int err)
+int	return_value(int status, int err)
 {
 	int	ret;
 
@@ -69,7 +69,7 @@ static int	return_value(int status, int err)
 	return (ret);
 }
 
-static int	execute_recursive(t_tree *tree, t_split *split, t_list **envl)
+int	execute_recursive(t_tree *tree, t_split *split, t_list **envl)
 {
 	int	err;
 	int	status;

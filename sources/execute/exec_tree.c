@@ -1,5 +1,5 @@
 #include "minishell.h"
-#include "parser_new.h"
+#include "parser.h"
 #include "structures.h"
 
 int exec_ir(const t_ir_line *ir, t_list **envl)

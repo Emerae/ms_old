@@ -1,4 +1,4 @@
-#include "../prser.h"
+#include "parser.h"
 
 int	find_delimiter2(char *input, int *nature, int type)
 {
