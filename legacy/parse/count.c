@@ -5,8 +5,8 @@
  * 
  * @param command The input command string to analyze
  * @param i The current index in the command string
- * @return int The new state: DB_QUOTE for double quotes, QUOTE for single quotes,
- *             OPERATOR for operators, or SPACE for other characters
+ * @return int The new state: DB_QUOTE for double quotes, TOKEN_QUOTE for single quotes,
+ *             OPERATOR for operators, or TOKEN_SPACE for other characters
  */
 
 /**
@@ -35,12 +35,12 @@
 int	new_state(char *command, int i)
 {
 	if (command[i] == '\"')
-		return (DB_QUOTE);
+		return (TOKEN_DB_QUOTE);
 	if (command[i] == '\'')
-		return (QUOTE);
+		return (TOKEN_QUOTE);
 	if (is_operator(command[i]))
-		return (OPERATOR);
-	return (SPACE);
+		return (TOKEN_OPERATOR);
+	return (TOKEN_SPACE);
 }
 
 int	nb_words(char *command)

@@ -91,7 +91,7 @@ int		is_spaceend(char c)
 
 int		is_state_ok(t_parse *p)
 {
-	if (p->state != OPERATOR || p->sep == '=' || p->sep == ';')
+	if (p->state != TOKEN_OPERATOR || p->sep == '=' || p->sep == ';')
 		return (p->nb);
 	return (-1);
 }

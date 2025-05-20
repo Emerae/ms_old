@@ -82,27 +82,6 @@ int		ft_pwd(t_info *cmd, t_list **envl);
 int		ft_unset(t_info *cmd, t_list **envl);
 
 /*
-** Parsing
-*/
-
-int		state_space(char *command, int i, t_parse *p);
-int		state_quote(char *command, int i, t_parse *p);
-int		state_db_quote(char *command, int i, t_parse *p);
-int		state_operator(char *command, int i, t_parse *p);
-int		state_reset(char *command, int i, t_parse *p);
-int		nb_words(char *s);
-int		len_of_word(char *s, int i, char *sep);
-void	trim_seps(t_split split);
-void	trim_spaces(char *s);
-int		new_state(char *command, int i);
-int		is_state_ok(t_parse *p);
-int		is_spaceend(char c);
-int		is_operator(char c);
-char	sep_converter(char c, char *command, int k);
-void	trim_seps(t_split split);
-void	add_space(t_split *split, int i);
-
-/*
 ** Tree
 */
 

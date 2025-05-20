@@ -147,11 +147,11 @@ int	state_reset(char *command, int i, t_parse *p)
 	p->state = new_state(command, i);
 	p->sep = command[i];
 	(p->nb)++;
-	if (p->state == SPACE)
+	if (p->state == TOKEN_SPACE)
 		return (state_space(command, i + 1, p));
-	else if (p->state == QUOTE)
+	else if (p->state == TOKEN_QUOTE)
 		return (state_quote(command, i + 1, p));
-	else if (p->state == DB_QUOTE)
+	else if (p->state == TOKEN_DB_QUOTE)
 		return (state_db_quote(command, i + 1, p));
 	else
 		return (state_operator(command, i, p));

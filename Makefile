@@ -10,9 +10,7 @@ LIB_NAME	= $(LIB_DIR)libft.a
 
 # New parser integration
 PARSER_NEW_DIR = ./sources/parser_new/parser
-PARSER_NEW_SRCS = $(shell find $(PARSER_NEW_DIR) -name "*.c" ! -name "main.c") ./sources/parser_new/parse_command_new.c
 PARSER_NEW_INC = -I$(PARSER_NEW_DIR)
-
 
 INCS		= $(addprefix $(INCS_DIR), minishell.h structures.h)
 
@@ -25,15 +23,53 @@ SRCS		=  $(addprefix sources/, \
 			execute/file.c \
 			execute/useful.c \
 			execute/pipe.c \
-			parse/count.c \
-			parse/env.c \
-			parse/parse.c \
-			parse/redir.c \
-			parse/state.c \
-			parse/tree.c \
-			parse/node.c \
-			parse/trim.c \
-			parse/useful.c \
+			parser_new/parser/cyutil/cy_memset.c \
+			parser_new/parser/cyutil/cy_strchr.c \
+			parser_new/parser/cyutil/cy_strcmp.c \
+			parser_new/parser/cyutil/cy_strdup.c \
+			parser_new/parser/cyutil/cy_strlcat.c \
+			parser_new/parser/cyutil/cy_strlcpy.c \
+			parser_new/parser/cyutil/cy_strlen.c \
+			parser_new/parser/cyutil/cy_true_strdup.c \
+			parser_new/parser/pars/cy0_check_char.c \
+			parser_new/parser/pars/cy0_freeer.c \
+			parser_new/parser/pars/cy0_init_env.c \
+			parser_new/parser/pars/cy1_1_remove_space_nodes.c \
+			parser_new/parser/pars/cy1_env.c \
+			parser_new/parser/pars/cy1_input_list.c \
+			parser_new/parser/pars/cy1_input_list1.c \
+			parser_new/parser/pars/cy1_input_list2.c \
+			parser_new/parser/pars/cy2_1_fill_builtin.c \
+			parser_new/parser/pars/cy2_2_fill_redir.c \
+			parser_new/parser/pars/cy2_2_fill_redir2.c \
+			parser_new/parser/pars/cy2_3_free_first_node.c \
+			parser_new/parser/pars/cy2_convert_cmd.c \
+			parser_new/parser/pars/cy2_convert_cmd2.c \
+			parser_new/parser/pars/cy2_convert_cmd3.c \
+			parser_new/parser/pars/cy3_2_dollar.c \
+			parser_new/parser/pars/cy3_2_dollar2.c \
+			parser_new/parser/pars/cy3_2_dollar_alone.c \
+			parser_new/parser/pars/cy3_2_dollar_bang.c \
+			parser_new/parser/pars/cy3_2_dollar_braces.c \
+			parser_new/parser/pars/cy3_2_dollar_braces2.c \
+			parser_new/parser/pars/cy3_2_dollar_braces3.c \
+			parser_new/parser/pars/cy3_2_dollar_word.c \
+			parser_new/parser/pars/cy3_2_dollar_word2.c \
+			parser_new/parser/pars/cy3_subti_check.c \
+			parser_new/parser/pars/cy3_subti_fuse.c \
+			parser_new/parser/pars/cy4_1wrong_char.c \
+			parser_new/parser/pars/cy4_2wrong_redir.c \
+			parser_new/parser/pars/cy4_3wrong_pipe.c \
+			parser_new/parser/pars/cy4_4wrong_redir_log.c \
+			parser_new/parser/pars/cy4_5wrong_pipe_log.c \
+			parser_new/parser/pars/utils.c \
+			parser_new/parse_command_new.c \
+			parser_new/glue_cmd.c \
+			parser_new/glue_tree.c \
+			parser_new/env.c \
+			parser_new/tree.c \
+			parser_new/redir.c \
+			parser_new/node.c \
 			utilities/errors.c \
 			utilities/free.c \
 			utilities/prompt.c \

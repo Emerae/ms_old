@@ -14,4 +14,10 @@ t_tree *convert_cmdlist_to_tree(t_cmd *cmds, char *line);
 /* Fonction pour libérer la liste de commandes */
 void   free_cmd_list(t_cmd *cmd);
 
+char	**copy_args(char **args);
+
+void	apply_redirections_to_info(t_info *info, t_redir *redirs);
+
+
+
 #endif /* PARSER_NEW_H */
