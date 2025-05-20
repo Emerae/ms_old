@@ -2,6 +2,8 @@
 # define IR_H
 
 # include <stddef.h>
+# include "structures.h"  /* Pour t_tree */
+# include "libftfull.h"   /* Pour t_list */
 
 typedef enum e_ir_redir_type
 {
@@ -30,8 +32,10 @@ typedef struct s_ir_line
     size_t       n_cmd;      /* nombre de commandes */
 } t_ir_line;
 
-/* Fonctions pour créer et libérer une IR */
-t_ir_line *ir_create(size_t n_cmd);
-void       ir_free(t_ir_line *ir);
+/* Fonctions pour manipuler la structure IR */
+t_ir_line *ast_to_ir(t_tree *root, t_list **envl);
+int        exec_ir(const t_ir_line *ir, t_list **envl);
+void       free_ir(t_ir_line *ir);
+t_tree    *create_tree_from_ir(const t_ir_line *ir);
 
 #endif
