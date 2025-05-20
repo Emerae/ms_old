@@ -1,6 +1,6 @@
-
 #include "minishell.h"
 #include "parser_new.h"
+#include "structures.h"
 
 int			g_signal;
 
@@ -66,24 +66,24 @@ void		handler(int signo)
  * @param envl Pointer to the environment list.
  * @param line The command line to parse and execute
  */
-static void	parse_and_exec(t_list **envl, char *line)
+int parse_and_exec(char *line, t_list **envl)
 {
-	int		err;
-	t_tree	*tree;
-	
-	tree = parse_command_new(line, *envl, &err);
-	if (!tree)
-	{
-		update_return(envl, err);
-		free(line);
-		return;
-	}
-	
-	err = execute(NULL, envl, line);
-	update_return(envl, err);
-	free_tree(tree);
-	free(line);
-	prompt();
+    t_tree     *tree;
+    t_ir_line *ir;
+    int        err;
+
+    tree = parse_command_new(line, *envl, &err);
+    if (err || !tree)
+        return (err);
+
+    ir = ast_to_ir(tree, envl);
+    free_ast(tree);
+    if (!ir)
+        return (ENOMEM);
+
+    err = exec_ir(ir, envl);
+    free_ir(ir);
+    return (err);
 }
 
 /**
@@ -110,7 +110,7 @@ static int	waiting_command(t_list **envl)
 	{
 		if (g_signal == 4)
 			g_signal = 2;
-		parse_and_exec(envl, line);
+		parse_and_exec(line, &envl);
 		g_signal = 0;
 	}
 	if (line)

@@ -18,6 +18,27 @@ static void	cy2_fill_builtin_id_1(t_cmd **current_cmd)
 
 void	cy2_fill_builtin_id(t_cmd **current_cmd)
 {
+	if (current_cmd && *current_cmd && (*current_cmd)->next)
+		*current_cmd = (*current_cmd)->next;
+	else
+		return ;
+	if (!(*current_cmd)->args || !(*current_cmd)->args[0])
+		return ;
+	if (cy_strcmp((*current_cmd)->args[0], "echo") == 0)
+	{
+		if ((*current_cmd)->args[1]
+			&& cy_strcmp((*current_cmd)->args[1], "-n") == 0)
+			(*current_cmd)->builtin_id = 1;
+		else
+			(*current_cmd)->builtin_id = 2;
+	}
+	else
+		cy2_fill_builtin_id_1(current_cmd);
+}
+
+/*
+void	cy2_fill_builtin_id(t_cmd **current_cmd)
+{
 	if (current_cmd && *current_cmd)
 		*current_cmd = (*current_cmd)->next;
 	if (!(*current_cmd)->args || !(*current_cmd)->args[0])
@@ -33,3 +54,4 @@ void	cy2_fill_builtin_id(t_cmd **current_cmd)
 	else
 		cy2_fill_builtin_id_1(current_cmd);
 }
+*/

@@ -94,18 +94,17 @@ static int	execute_recursive(t_tree *tree, t_split *split, t_list **envl)
 	return (execute_recursive(tree->right, split, envl));
 }
 
-static void	remove_last_semic(t_split *split)
+void    remove_last_semic(t_split *split)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	while (split[i].str)
-		i++;
-	if (i > 0 && split[i - 1].sep == ';')
-	{
-		split[i - 1].str = NULL;
-		split[i - 1].sep = '\0';
-	}
+    if (!split)
+        return ;               /* chemin AST → exec, plus rien à faire */
+    i = 0;
+    while (split[i].str)
+        i++;
+    if (i && split[i - 1].str && split[i - 1].str[0] == ';')
+        split[i - 1].str[0] = '\0';
 }
 
 int			execute(t_split *split, t_list **envl, char *line)

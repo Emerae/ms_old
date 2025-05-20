@@ -1,50 +1,5 @@
 
 #include "minishell.h"
-/**
- * @brief Counts the number of elements in a NULL-terminated string array
- *
- * @param args NULL-terminated array of strings
- * @return int Number of elements in the array
- */
-
-/**
- * @brief Creates a filtered array of arguments for command execution
- * 
- * This function allocates memory for the argv array and populates it
- * with arguments from cmd->args, excluding redirection symbols.
- *
- * @param cmd Structure containing command information
- * @return int SUCCESS on success, error code on failure
- */
-
-/**
- * @brief Counts the number of arguments in a command based on spaces
- *
- * @param cmd Structure containing command information
- * @param split Array of split tokens
- * @return int Number of arguments
- */
-
-/**
- * @brief Fills the args array by joining words from the split structure
- *
- * This function joins consecutive tokens that aren't separated by spaces
- * into single arguments, and records their separator types.
- *
- * @param cmd Structure containing command information
- * @param split Array of split tokens
- */
-
-/**
- * @brief Joins words from the split structure into the command's args array
- *
- * Allocates memory for args and seps arrays, then populates them by
- * joining words according to spaces in the split structure.
- *
- * @param cmd Pointer to structure containing command information
- * @param split Array of split tokens
- * @return int 0 on success, -1 on allocation failure
- */
 
 int			number_of_args(char **args)
 {
